@@ -27,7 +27,7 @@ class MIDIProcessor(object):
                 os.makedirs(os.path.dirname(state_dict_path))
             os.system('wget -O "{}" "{}"'.format(state_dict_path, zenodo_path))
             
-        self._model.load_state_dict(torch.load(state_dict_path))
+        self._model.load_state_dict(torch.load(state_dict_path, weights_only=True))
 
         self._model.eval()
 
